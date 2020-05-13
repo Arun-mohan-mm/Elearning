@@ -1,0 +1,36 @@
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'table1.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'xxx.css' %}">
+
+</head>
+<body class= "pic" background="{% static 'xxx.jpg' %}">
+<h1 style="color:blue;font:;">Teacher booking Details</h1>
+<table>
+    <tr>
+        <th>First Name</th>
+        <th>Second Name</th>
+        <th>email</th>
+        <th>Password</th>
+        <th></th>
+    </tr>
+    {% for d in gtt %}
+    {% for i in bb %}
+    <tr>
+				<td> {{ i.first_name }}  </td>
+                <td> {{ i.last_name}}</td>
+                <td> {{ i.email}}</td>
+                <td> {{ i.password}}</td>
+                <td>
+                    <button onclick="window.location.href = '{% url 'del_teacher' d.id %}';">DELETE</button>
+                </td>
+    </tr>
+    {% endfor %}
+    {% endfor %}
+
+
+</body>
+</html>

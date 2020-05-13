@@ -1,0 +1,121 @@
+{% load static %}
+
+<html lang="en">
+<head>
+	<style>
+		table, th, td {
+		border: 1px solid black;
+		border-collapse: collapse;
+		}
+		th, td {
+		padding: 15px;
+		}
+	</style>
+    <meta charset="UTF-8">
+    <title>Subject update</title>
+	<link rel="stylesheet" type="text/css" href="{% static 'trt.css' %}">
+</head>
+<body class= "pic" background="{% static 'trt.jpg' %}" >
+<h3 align="center">ADMIN SUBJECT EDIT</h3>
+<div style="color:blue;" align="center">
+        {% if messages %}
+            {% for msg in messages %}
+                    {{ msg }}
+            {% endfor %}
+        {% endif %}
+</div>
+<table  style="width:100%">
+	<tr>
+		<th>
+			Subject name
+		</th>
+		<th>
+			Course name
+		</th>
+		<th>
+			Course briefing
+		</th>
+		<th>
+			Course duration
+		</th>
+		<th>
+			Chapter numbers
+		</th>
+		<th>
+			Course fee
+		</th>
+		<th>
+			Language of teaching
+		</th>
+        <th>
+			Teacher name
+		</th>
+        <th>
+			Teacher email
+		</th>
+	</tr>
+	{% for i in dd %}
+	<tr>
+		<td>
+			{{i.Subject_title}}
+		</td>
+		<td>
+			{{i.Course_title}}
+		</td>
+		<td>
+			{{i.Course_brief}}
+		</td>
+		<td>
+			{{i.Course_duration}}
+		</td>
+		<td>
+			{{i.Num_of_chapters}}
+		</td>
+		<td>
+			{{i.Course_fee}}
+		</td>
+		<td>
+			{{i.Language}}
+		</td>
+		{% for w in mm %}
+		{% for y in dd %}
+		{% for z in gt %}
+		{% if w.id == y.Teacher_id %}
+		{% if w.id == z.Log_id %}
+        <td>
+			{{z.First_name}} {{z.Last_name}}
+		</td>
+        {% endif %}
+		{% endif %}
+        {% endfor %}
+		{% endfor %}
+		{% endfor %}
+
+        {% for w in mm %}
+		{% for y in dd %}
+		{% for z in gt %}
+		{% if w.id == y.Teacher_id %}
+		{% if w.id == z.Log_id %}
+        <td>
+			{{z.Email}}
+		</td>
+        {% endif %}
+		{% endif %}
+        {% endfor %}
+		{% endfor %}
+		{% endfor %}
+		<td>
+			<button type="submit" onclick="location.href='{% url 'edit_subject1' i.id %}'" name='t_h'>Edit</button>
+		</td>
+		<td>
+			<button type="submit" onclick="location.href='{% url 'delete_subject1' i.id %}'" name='del'>Delete</button>
+		</td>
+	</tr>
+	{% endfor %}
+</table><br><br>
+<div align="center">
+	<button type="submit" onclick="location.href='{% url 'admin_home' %}'" name='mybtn2'>Back</button>
+</div>
+
+</body>
+</html>

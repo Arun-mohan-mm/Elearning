@@ -1,0 +1,34 @@
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'table1.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'xxx.css' %}">
+
+</head>
+<body class= "pic" background="{% static 'xxx.jpg' %}">
+<h1 style="color:brown;text-align:center;font-size:50px">Teacher booking Details</h1>
+<table>
+    <tr>
+        <th>teacher name</th>
+        <th>teacher_topic</th>
+        <th>teacher_subject</th>
+        <th>teacher_email</th>
+        <th>teacher_date</th>
+
+    </tr>
+    {% for i in book %}
+    <tr>
+				<td>{{i.teacher_name}}</td>
+				<td> {{i.teacher_topic}} </td>
+				<td> {{i.teacher_subject}} </td>
+                <td>{{i.teacher_email}} </td>
+				<td>{{i.teacher_date}}</td>
+
+    </tr>
+    {% endfor %}
+
+
+</body>
+</html>

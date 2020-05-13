@@ -1,0 +1,33 @@
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>CHAPTER CONTENT</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'trt.css' %}">
+</head>
+<body class= "pic" background="{% static 'education_news2.jpg' %}">
+<form action="{% url 'compp' %}" method="post">
+{% csrf_token %}
+<div align="center">
+
+    {% for i in sz %}
+    <input type="hidden" value="{{i.id}}" name="id">
+  <p align="center">{{i.Text_content}}</p><br><br>
+    <a href="/media/{{i.Content_name}}" download="">
+         <input type="button" id="btn" value="Download content"/>
+    </a><br><br>
+    {% endfor %}
+         <select name="comm">
+         <option value="Nil" selected>Status</option>
+         <option value="C">Completed</option>
+         <option value="P">Pending</option>
+        </select>
+    <input type="submit" value="Submit">
+</div>
+</form>
+<br><br>
+<div align="center">
+    <button type="submit" onclick="location.href='{% url 'student_home' %}'" name='mybtn2'>HOME</button>
+</div>
+</body>
+</html>

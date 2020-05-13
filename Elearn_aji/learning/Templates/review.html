@@ -1,0 +1,43 @@
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>REVIEW</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'trt.css' %}">
+
+</head>
+
+<body class= "pic" background="{% static 'trt.jpg' %}">
+<center>
+<form method="post" action="{% url 'review' %}">
+    {% csrf_token %}
+    <div class="container">
+    <h1>VALUE TEACHER</h1>
+    <p>Send your valuable score here</p>
+    <hr>
+     <label><b>Select teacher</b></label>
+     <select name="select" value="nil" required>
+					{% for i in g %}
+                        <option value={{i}}>{{i}}</option>
+                    {% endfor %}
+	       </select><br><br>
+         <label><b>Select a score (1 - worst, 5 - best)</b></label>
+        <select name="select1">
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+	       </select><br><br>
+    <hr>
+    <button type="submit" class="registerbtn">Submit</button>&nbsp&nbsp&nbsp&nbsp
+    <button type="reset" class="registerbtn">Cancel</button>
+  </div>
+
+</form>
+    <button type="submit" class="registerbtn" onclick="location.href='{% url 'student_home' %}'" name='mybtn2'>Back</button>
+
+</center>
+</body>
+
+</html>

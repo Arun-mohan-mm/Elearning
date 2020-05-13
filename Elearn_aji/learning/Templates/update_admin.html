@@ -1,0 +1,26 @@
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'trt.css' %}">
+</head>
+<body class= "pic" background="{% static 'trt.jpg' %}">
+<div align="center">
+<form action="{% url 'bnb' %}" method="post">
+{% csrf_token %}
+        {% for i in bb1 %}
+                  <label>First name</label>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                  <input type="text" value="{{i.First_name}}" name="first"><br>
+                  <label>Last name</label> &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                  <input type="text" value="{{i.Last_name}}" name="last"><br>
+                  <label>Email</label>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                  <input type="text" value="{{i.Email}}" name="em"><br>
+                  <label>Password</label>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                  <input type="text" value="{{i.Password}}" name="psw"><br>
+        {% endfor %}
+        <input type="submit" value="submit">
+</form>
+</div>
+</body>
+</html>

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+
+<div class="container">
+  <form method="POST" action="{% url 'msg_admin' %}">
+      {% csrf_token %}
+    <label >From</label>
+    <input type="text" name="femail" placeholder="Your email..">
+    <label >To</label>
+    <input type="text" name="email" placeholder="Your email..">
+    <label for="subject">Subject</label>
+    <textarea id="subject" name="subject" placeholder="Write something.." style="height:200px"></textarea>
+
+    <input type="submit" value="Submit">
+
+  </form>
+</div>
+</body>
+</html>

@@ -1,0 +1,87 @@
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ADD SUBJECT</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'admin.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'msg.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'studenthome.css' %}">
+</head>
+<body class=" pic" background="{% static 'banner.jpg' %}">
+<div align="center">
+<form method="post" action="{% url 'add_subject' %}">
+    {% csrf_token %}
+    <h3>ADD SUBJECT</h3>
+    <table>
+        <tr>
+             <td>
+                <label>Subject title</label>
+            </td>
+            <td>
+                <input type="text" name="sub_tit">
+            </td>
+        </tr>
+        <tr>
+             <td>
+                <label>Course title</label>
+            </td>
+            <td>
+                <input type="text" name="cou_tit">
+            </td>
+        </tr>
+        <tr>
+             <td>
+                <label>Course brief</label>
+            </td>
+            <td>
+                <textarea rows="4" cols="50" name="c_b1"></textarea>
+            </td>
+        </tr>
+        <tr>
+             <td>
+                <label>Course duration in days</label>
+            </td>
+            <td>
+                <input type="number" name="c_d1">
+            </td>
+        </tr>
+         <tr>
+             <td>
+                <label>Number of chapters</label>
+            </td>
+            <td>
+                <input type="number" name="n_c1">
+            </td>
+        </tr>
+        <tr>
+             <td>
+                <label>Course fee</label>
+            </td>
+            <td>
+                <input type="number" step="0.01" name="c_f1">
+            </td>
+        </tr>
+        <tr>
+             <td>
+                <label>Language</label>
+            </td>
+            <td>
+                <input type="text" name="lang">
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <input type="submit" name="submit" value="submit" required>
+            </td>
+            <td>
+                <input type="reset" name="cancel" value="cancel">
+            </td>
+            <td>
+                 <a href="{% url 'student_home' %}">HOME</a>
+            </td>
+        </tr>
+    </table>
+</form>
+</div>
+</body>
+</html>

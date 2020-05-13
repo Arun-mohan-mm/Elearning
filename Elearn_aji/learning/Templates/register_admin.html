@@ -1,0 +1,41 @@
+{% load static %}
+<html lang="en">
+<head>
+    <style>
+.tdStyle
+{
+background-repeat:no-repeat;
+background-size:cover;
+}
+label
+{ float: center; width: 10em; margin-right: 1em; }
+</style>
+    <meta charset="UTF-8">
+    <title>Admin registration</title>
+    <!--<link rel="stylesheet" type="text/css" href={% static 'trt.css' %}>-->
+</head>
+<!--style="background-repeat: no-repeat; background-size: 1300px 700px"-->
+<body class="tdStyle"  background="{% static 'trt.jpg' %}">
+<form method="post" action="{% url 'adminn' %}" >
+    {% csrf_token %}
+    <div class="container" align="center">
+        <h1>Admin registration</h1>
+            <p>Please fill in this form to create an account.</p>
+                <label for="first_name"><b>Firstname</b></label><br><br>
+                <input type="text" size="25" placeholder="Enter firstname" name="first_name" required><br><br>
+                <label for="last_name"><b>Lastname</b></label><br><br>
+                <input type="text" size="25" placeholder="Enter lastname" name="last_name" required><br><br>
+                <label for="email"><b>Email</b></label><br><br>
+                <input type="email" size="25" placeholder="Enter email" name="email" required><br><br>
+                <label for="psw"><b>Password</b></label><br><br>
+                <input type="password" size="25" placeholder="Enter password" name="psw" required><br><br>
+                <input type="hidden"  name="adminn1" value="admin">
+            <button type="submit" class="registerbtn">Register</button>
+            <button type="reset" class="registerbtn">Cancel</button>
+    </div>
+</form>
+<div align="center">
+	<button type="submit" onclick="location.href='{% url 'home' %}'" name='mybtn2'>Back</button>
+</div>
+</body>
+</html>

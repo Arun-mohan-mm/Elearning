@@ -1,0 +1,60 @@
+{% load static %}
+<table lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'table1.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'xxx.css' %}">
+
+</head>
+<table class= "pic" background="{% static 'xxx.jpg' %}">
+<h1 style="color:brown;text-align:center;font-size:50px">messages</h1>
+ <form method="POST" action="{% url 'msgg_student' %}">
+              {% csrf_token %}
+     <h3>Send messages:</h3>
+<table>
+    <tr>
+        <th>Message sender</th>
+         <th>Message reciever name</th>
+        <th>Message reciever</th>
+        <th>subject</th>
+        <th></th>
+
+    </tr>
+    {% for dd in bb %}
+    <tr>
+				<td>{{dd.name}}</td>
+                <td> {{dd.rec_name}} </td>
+                <td> {{dd.email}} </td>
+				<td> {{dd.msg}} </td>
+                <td>
+                    <button onclick="window.location.href = '{% url 'del_msg_student' dd.id %}';">DELETE</button>
+                </td>
+    </tr>
+    {% endfor %}
+ </form>
+</table>
+     <h3>forward messages:</h3>
+<table>
+    <tr>
+        <th>Message sender</th>
+         <th>Message reciever name</th>
+        <th>Message reciever</th>
+        <th>subject</th>
+        <th></th>
+
+    </tr>
+    {% for ddx in bbx %}
+    <tr>
+				<td>{{ddx.name}}</td>
+                <td> {{ddx.rec_name}} </td>
+                <td> {{ddx.email}} </td>
+				<td> {{ddx.msg}} </td>
+                <td>
+                    <button onclick="window.location.href = '{% url 'del_msg_student' ddx.id %}';">DELETE</button>
+                </td>
+    </tr>
+    {% endfor %}
+</table>
+</body>
+</html>

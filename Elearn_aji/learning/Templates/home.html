@@ -1,0 +1,59 @@
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>HOME</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'home.css' %}">
+
+</head>
+<body class= "pic" background="{% static 'home_learn1.jpeg' %}">
+<div class="navbar">
+  <a href="{% url 'home' %}">HOME</a>
+  <a href="{% url 'news' %}">NEWS</a>
+  <a href="{% url 'about' %}">ABOUT</a>
+  <div class="dropdown">
+  <button class="dropbtn">BLOGS<i class="fa fa-caret-down"></i></button>
+      <div class="dropdown-content">
+            <a href="{% url 'add_blog' %}">ADD BLOGS</a>
+            <a href="{% url 'view_blog' %}">VIEW BLOGS</a>
+      </div>
+  </div>
+  <a href="{% url 'contact' %}">CONTACT</a>
+  <div class="dropdown">
+  <button class="dropbtn">SUBJECTS<i class="fa fa-caret-down"></i></button>
+      <div class="dropdown-content">
+          {% for i in sd %}
+            <a href="{% url 'reg_msg' %}">{{i}}</a>
+          {% endfor %}
+      </div>
+  </div>
+    <a href="{% url 'login' %}">LOGIN</a>
+  <div class="dropdown">
+    <button class="dropbtn">REGISTER<i class="fa fa-caret-down"></i></button>
+
+    <div class="dropdown-content">
+        <a href="{% url 'register_st' %}">Student</a>
+        <a href="{% url 'register_tr' %}">Teacher</a>
+        <a href="{% url 'adminn' %}">Admin</a>
+    </div>
+  </div>
+</div>
+<center>
+<div class="head">
+    <h2 style="color:white">E-learning web portal on machine learning, deep learning, and artificial intelligence courses</h2>
+    <h3 style="color:white">Best online education service in the world</h3>
+    <!--<h4>One Step Ahead This Season</h4>-->
+</div>
+<div style="color:blue;">
+        {% if messages %}
+            {% for msg in messages %}
+                    {{ msg }}
+            {% endfor %}
+        {% endif %}
+</div>
+</center>
+
+
+</body>
+
+</html>

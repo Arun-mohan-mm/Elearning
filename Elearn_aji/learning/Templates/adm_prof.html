@@ -1,0 +1,46 @@
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'table1.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'trt.css' %}">
+
+</head>
+<body class="pic" background="{% static 'trt.jpg' %}">
+<div align="center">
+<h1 style="color:red;font:;">Admin profile</h1>
+<table>
+    <tr>
+        <th style="font-size:15pt">First Name</th>
+        <th style="font-size:15pt">Last Name</th>
+        <th style="font-size:15pt">Email</th>
+        <th style="font-size:15pt">Password</th>
+        <th style="font-size:15pt">Registration date</th>
+    </tr>
+    {% for i in gtt1 %}
+    <tr>
+                <td style="font-size:15pt"> {{ i.First_name}}</td>
+                <td style="font-size:15pt"> {{ i.Last_name}}</td>
+                <td style="font-size:15pt"> {{ i.Email}}</td>
+                <td style="font-size:15pt"> {{ i.Password}}</td>
+                <td style="font-size:15pt"> {{ i.Registration_date}}</td>
+        {% for i in gtt %}
+                <td>
+                    <button onclick="window.location.href = '{% url 'del_admin' i.id %}';">Resign from administration</button>
+                </td>
+        {% endfor %}
+                  <td>
+                    <button onclick="window.location.href = '{% url 'edit_admin' %}';">Edit my profile</button>
+                </td>
+                <td>
+                    <button onclick="window.location.href = '{% url 'admin_home' %}';">Back</button>
+                </td>
+
+    </tr>
+    {% endfor %}
+
+</div>
+
+</body>
+</html>

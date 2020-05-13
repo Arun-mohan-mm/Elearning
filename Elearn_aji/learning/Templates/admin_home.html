@@ -1,0 +1,69 @@
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'admin.css' %}">
+        <link rel="stylesheet" type="text/css" href="{% static 'msg.css' %}">
+        <link rel="stylesheet" type="text/css" href="{% static 'studenthome.css' %}">
+
+</head>
+<body class=" pic" background="{% static 'banner.jpg' %}">
+<div class="navbar">
+  <div class="dropdown">
+    <!--<button class="dropbtn">update profile<i class="fa fa-caret-down"></i></button>-->
+      <a href="{% url 'adm_prof' %}">Update profile</a>
+      <a href="{% url 'blogs_admin' %}">Blogs</a>
+        <div class="dropdown-content">
+            <!--<a href="#">teacher</a>
+            <a href="#">Student</a>-->
+        </div>
+  </div>
+
+   <div class="dropdown">
+    <button class="dropbtn">Certificate<i class="fa fa-caret-down"></i></button>
+    <div class="dropdown-content">
+        <a href="{% url 'upl_cer' %}">Upload certificate</a>
+        <a href="{% url 'del_cer' %}">Delete certificate</a>
+    </div>
+  </div>
+  <a href="{% url 'abb' %}">About website</a>
+  <a href="{% url 'block' %}">Block a member</a>
+  <div class="dropdown">
+    <button class="dropbtn">Feedback<i class="fa fa-caret-down"></i></button>
+    <div class="dropdown-content">
+        <a href="{% url 'feedbak' %}">Course</a>
+        <a href="{% url 'delete_review' %}">Teacher</a>
+    </div>
+  </div>
+  <a href="{% url 'pass_req' %}">Password requests</a>
+  <div class="dropdown">
+    <button class="dropbtn">Messages<i class="fa fa-caret-down"></i></button>
+    <div class="dropdown-content">
+              <a href="{% url 'm_m' %}">Member messages</a>
+              <a href="{% url 'g_m' %}">Guest messages</a>
+    </div>
+  </div>
+    <div class="dropdown">
+    <button class="dropbtn">Topics<i class="fa fa-caret-down"></i></button>
+    <div class="dropdown-content">
+        <a href="{% url 'subject_ad' %}">Subject</a>
+        <a href="{% url 'chapter_ad' %}">Chapter</a>
+        <a href="{% url 'ch_co_ad' %}">Chapter content</a>
+    </div>
+  </div>
+              <a href="{% url 'logout' %}">Logout</a>
+    </div>
+      <div>
+    <h1>ADMIN HOME</h1>
+</div>
+<div align="center" style="color:blue;">
+        {% if messages %}
+            {% for msg in messages %}
+                    {{ msg }}
+            {% endfor %}
+        {% endif %}
+</div>
+
+</body>
+</html>

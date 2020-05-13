@@ -1,0 +1,24 @@
+{% load static %}
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>teacher</title>
+</head>
+<body>
+
+<br><br>
+	<form method="post" action="{% url 'teacher_top' %}">
+        {% csrf_token %}
+	Topics:
+		<select name="select" value="nil">
+					{% for i in kk %}
+			            <option value={{i.sub_topic}}>{{i.sub_topic}}</option>
+					{% endfor %}
+	       </select>
+
+		<br><br>
+		<button type="submit">Submit</button><br><br>
+	</form>
+</body>
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form method="post" action="{% url 'bnb' %}">
+{% csrf_token %}
+    <table>
+          <tr>
+              <td>
+                  <input type="text" value="{{bb.email}}" name="em"><br>
+                  <input type="text" value="{{bb.password}}" name="pas"><br>
+                   <input type="text" value="{{bb.user_role}}" name="uss">
+                  <input type="hidden" value="{{bb.id}}" name="idd">
+              </td>
+          </tr>
+           <tr>
+              <td>
+                  <input type="submit" value="submit">
+              </td>
+          </tr>
+      </table>
+
+</form>
+</body>
+</html>

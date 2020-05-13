@@ -1,0 +1,48 @@
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>student registration</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'trt.css' %}">
+
+</head>
+
+<body class= "pic" background="{% static 'trt.jpg' %}">
+<center>
+<form method="post" action="{% url 'register_st' %}">
+    {% csrf_token %}
+    <div class="container">
+    <h1>Student registration</h1>
+    <p>Please fill in this form to create an account.</p>
+    <hr>
+     <label><b>firstname</b></label>
+    <input type="text" placeholder="Enter firstname" name="first_name" required><br>
+
+        <label><b>lastname</b></label>
+    <input type="text" placeholder="Enter lastname" name="last_name" required><br>
+
+    <label><b>Email</b></label>&nbsp&nbsp&nbsp&nbsp&nbsp
+    <input type="text" placeholder="Enter Email" name="email" required><br>
+
+    <label><b>Password</b></label>
+    <input type="password" placeholder="Enter Password" name="psw" required><br>
+
+    <input type="hidden"  name="student" value="student" required>
+    <hr>
+
+
+    <button type="submit" class="registerbtn">Register</button>&nbsp&nbsp&nbsp&nbsp&nbsp
+    <button type="reset" class="registerbtn">Cancel</button>
+  </div>
+
+
+
+
+</form>
+<div align="center">
+	<button type="submit" onclick="location.href='{% url 'home' %}'" name='mybtn2'>Back</button>
+</div>
+</center>
+</body>
+
+</html>

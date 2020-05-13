@@ -1,0 +1,28 @@
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'table1.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'xxx.css' %}">
+
+</head>
+<body class= "pic" background="{% static 'xxx.jpg' %}">
+<h1 style="color:red;font:;" align="center">Student booking Details</h1>
+    <form method="post" action="{% url 'std' %}">
+                    {% csrf_token %}
+<div align="center">
+        <select name="select" value="nil">
+			        <option value="nil" selected>select</option>
+					{% for i in ss %}
+			            <option value={{i.teacher_name}}>{{i.teacher_name}}</option>
+					{% endfor %}
+	       </select><br><br>
+
+                <input type="submit" name="book" value="next">
+</div>
+
+
+</form>
+</body>
+</html>

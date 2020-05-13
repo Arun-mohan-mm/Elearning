@@ -1,0 +1,61 @@
+{% load static %}
+
+<html lang="en">
+<head>
+	<style>
+		table, th, td {
+		border: 1px solid black;
+		border-collapse: collapse;
+		}
+		th, td {
+		padding: 5px;
+		}
+	</style>
+    <meta charset="UTF-8">
+    <title>Reviews</title>
+	<link rel="stylesheet" type="text/css" href="{% static 'trt.css' %}">
+</head>
+<body class= "pic" background="{% static 'trt.jpg' %}" >
+<h3 align="center">REVIEWS</h3>
+<div style="color:blue;" align="center">
+        {% if messages %}
+            {% for msg in messages %}
+                    {{ msg }}
+            {% endfor %}
+        {% endif %}
+</div>
+<table  style="width:100%">
+	<tr>
+		<th>
+			Teacher name
+		</th>
+		<th>
+			Teacher email
+		</th>
+		<th>
+			Review score
+		</th>
+	</tr>
+	{% for i,j,k,m,n in rev %}
+	<tr>
+		<td>
+			{{i}} {{j}}
+		</td>
+		<td>
+			{{k}}
+		</td>
+		<td>
+			{{m}}/5
+		</td>
+		<td>
+			<button type="submit" onclick="location.href='{% url 'delete_review1' n %}'" name='del'>Delete</button>
+		</td>
+	</tr>
+	{% endfor %}
+</table><br><br>
+<div align="center">
+	<button type="submit" onclick="location.href='{% url 'admin_home' %}'" name='mybtn2'>Back</button>
+</div>
+
+</body>
+</html>
